@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mentorship Opportunities</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h2 class="mb-4">Mentorship Opportunities</h2>
+    <form method="post" class="mb-3">
+        <div class="mb-3">
+            <label class="form-label">Mentor Name:</label>
+            <input type="text" name="mentor_name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Expertise:</label>
+            <input type="text" name="expertise" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Details:</label>
+            <input type="text" name="details" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Post Mentorship</button>
+    </form>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Mentor Name</th>
+                <th>Expertise</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mentorship in mentorships %}
+            <tr>
+                <td>{{ mentorship['mentor_name'] }}</td>
+                <td>{{ mentorship['expertise'] }}</td>
+                <td>{{ mentorship['details'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="/" class="btn btn-secondary">Back to Home</a>
+</body>
+</html>

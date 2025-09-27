@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alumni Directory</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h2 class="mb-4">Alumni Directory</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Graduation Year</th>
+                <th>Career</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for alumnus in alumni %}
+            <tr>
+                <td>{{ alumnus['name'] }}</td>
+                <td>{{ alumnus['graduation_year'] }}</td>
+                <td>{{ alumnus['career'] }}</td>
+                <td>{{ alumnus['email'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="/" class="btn btn-secondary">Back to Home</a>
+</body>
+</html>

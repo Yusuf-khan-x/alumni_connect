@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Welcome, {{ user.name }}</h3>
+
+<h4 class="mt-4">Upcoming Events</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in events %}
+        <tr>
+            <td>{{ e.name }}</td>
+            <td>{{ e.date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if user.role == 'alumni' %}
+<h4 class="mt-4">Mentorship Requests</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in mentorships %}
+        <tr>
+            <td>{{ m.student_name }}</td>
+            <td>{{ m.status or 'pending' }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+{% endblock %}

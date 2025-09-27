@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mentorship Match</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h2 class="mb-4">Find a Mentor</h2>
+    <form method="post" class="mb-3">
+        <div class="mb-3">
+            <label class="form-label">Your Name:</label>
+            <input type="text" name="student_name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Your Email:</label>
+            <input type="email" name="email" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Field of Interest:</label>
+            <input type="text" name="field_of_interest" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Find Mentor</button>
+    </form>
+    {% if matches %}
+        <h4 class="mt-4">Matching Mentors:</h4>
+        <ul class="list-group">
+        {% for mentor in matches %}
+            <li class="list-group-item">
+                <strong>{{ mentor['mentor_name'] }}</strong> ({{ mentor['expertise'] }}): {{ mentor['details'] }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="/" class="btn btn-secondary mt-3">Back to Home</a>
+</body>
+</html>

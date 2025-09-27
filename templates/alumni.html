@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Alumni</h2>
+<ul class="list-group">
+    {% for a in alumni %}
+        <li class="list-group-item">
+            {{ a.name }} | Skills: {{ a.skills }}
+            {% if session.get('role')=='student' %}
+                <a class="btn btn-sm btn-primary ms-2" href="{{ url_for('request_mentorship', alumni_id=a.id) }}">Request Mentorship</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

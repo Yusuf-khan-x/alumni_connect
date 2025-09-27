@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mentor Matching</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h2>Mentor Matching</h2>
+    {% if user %}
+      <h4>Students Seeking Mentors:</h4>
+      <table class="table table-bordered">
+        <tr><th>Name</th><th>Email</th><th>Year</th><th>Skills/Interests</th></tr>
+        {% for student in students %}
+          <tr>
+            <td>{{ student['name'] }}</td>
+            <td>{{ student['email'] }}</td>
+            <td>{{ student['year'] }}</td>
+            <td>{{ student['skills'] }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% elif student %}
+      <h4>Available Alumni Mentors:</h4>
+      <table class="table table-bordered">
+        <tr><th>Name</th><th>Email</th><th>Graduation Year</th><th>Career</th><th>Skills</th></tr>
+        {% for alum in alumni %}
+          <tr>
+            <td>{{ alum['name'] }}</td>
+            <td>{{ alum['email'] }}</td>
+            <td>{{ alum['graduation_year'] }}</td>
+            <td>{{ alum['career'] }}</td>
+            <td>{{ alum['skills'] }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+    <a href="/" class="btn btn-secondary mt-3">Back to Home</a>
+</body>
+</html>
